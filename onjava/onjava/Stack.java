@@ -4,8 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 // A Stack class built with an ArrayDeque
 package onjava;
-import java.util.Deque;
+
 import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Stack<T> {
   private Deque<T> storage = new ArrayDeque<>();

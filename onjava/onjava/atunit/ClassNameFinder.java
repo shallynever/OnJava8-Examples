@@ -4,19 +4,25 @@
 // Visit http://OnJava8.com for more book information.
 // {java onjava.atunit.ClassNameFinder}
 package onjava.atunit;
-import java.io.*;
-import java.nio.file.*;
-import java.util.*;
-import onjava.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.PathMatcher;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClassNameFinder {
   public static String thisClass(byte[] classBytes) {
-    Map<Integer,Integer> offsetTable = new HashMap<>();
-    Map<Integer,String> classNameTable =
-      new HashMap<>();
+    Map<Integer, Integer> offsetTable = new HashMap<>();
+    Map<Integer, String> classNameTable =
+            new HashMap<>();
     try {
       DataInputStream data = new DataInputStream(
-        new ByteArrayInputStream(classBytes));
+              new ByteArrayInputStream(classBytes));
       int magic = data.readInt();  // 0xcafebabe
       int minorVersion = data.readShort();
       int majorVersion = data.readShort();

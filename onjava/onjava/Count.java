@@ -4,18 +4,26 @@
 // Visit http://OnJava8.com for more book information.
 // Generate incremental values of different types
 package onjava;
-import java.util.*;
-import java.util.function.*;
-import static onjava.ConvertTo.*;
+
+import java.util.Arrays;
+import java.util.function.DoubleSupplier;
+import java.util.function.IntSupplier;
+import java.util.function.LongSupplier;
+import java.util.function.Supplier;
+
+import static onjava.ConvertTo.primitive;
 
 public interface Count {
   class Boolean
-  implements Supplier<java.lang.Boolean> {
+          implements Supplier<java.lang.Boolean> {
     private boolean b = true;
-    @Override public java.lang.Boolean get() {
+
+    @Override
+    public java.lang.Boolean get() {
       b = !b;
       return java.lang.Boolean.valueOf(b);
     }
+
     public java.lang.Boolean get(int n) {
       return get();
     }

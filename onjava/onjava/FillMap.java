@@ -3,19 +3,22 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 package onjava;
-import java.util.*;
-import java.util.function.*;
-import java.util.stream.*;
+
+import java.util.Map;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FillMap {
-  public static <K, V> Map<K,V>
-  basic(Supplier<Pair<K,V>> pairGen, int size) {
+  public static <K, V> Map<K, V>
+  basic(Supplier<Pair<K, V>> pairGen, int size) {
     return Stream.generate(pairGen)
-      .limit(size)
-      .collect(Collectors
-        .toMap(Pair::key, Pair::value));
+            .limit(size)
+            .collect(Collectors
+                    .toMap(Pair::key, Pair::value));
   }
-  public static <K, V> Map<K,V>
+
+  public static <K, V> Map<K, V>
   basic(Supplier<K> keyGen,
         Supplier<V> valueGen, int size) {
     return Stream.generate(

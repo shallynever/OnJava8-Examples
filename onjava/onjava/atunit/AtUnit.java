@@ -5,22 +5,28 @@
 // An annotation-based unit-test framework
 // {java onjava.atunit.AtUnit}
 package onjava.atunit;
-import java.lang.reflect.*;
-import java.io.*;
-import java.util.*;
-import java.nio.file.*;
-import java.util.stream.*;
-import onjava.*;
+
+import onjava.ProcessFiles;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AtUnit implements ProcessFiles.Strategy {
   static Class<?> testClass;
-  static List<String> failedTests= new ArrayList<>();
+  static List<String> failedTests = new ArrayList<>();
   static long testsRun = 0;
   static long failures = 0;
+
   public static void
   main(String[] args) throws Exception {
     ClassLoader.getSystemClassLoader()
-      .setDefaultAssertionStatus(true); // Enable assert
+            .setDefaultAssertionStatus(true); // Enable assert
     new ProcessFiles(new AtUnit(), "class").start(args);
     if(failures == 0)
       System.out.println("OK (" + testsRun + " tests)");

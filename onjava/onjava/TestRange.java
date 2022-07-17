@@ -1,15 +1,18 @@
-// onjava/TestRange.java
+package onjava;// onjava/onjava.TestRange.java
 // (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Basic test of Range.java
-import static onjava.Range.*;
+
 import java.util.Arrays;
+
+import static onjava.Range.range;
 
 public class TestRange {
   private static void show(int[] rng) {
     System.out.println(Arrays.toString(rng));
   }
+
   public static void main(String[] args) {
     show(range(10, 21, 3));
     show(range(21, 10, -3));

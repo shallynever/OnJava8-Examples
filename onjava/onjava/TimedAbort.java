@@ -4,17 +4,20 @@
 // Visit http://OnJava8.com for more book information.
 // Terminate a program after t seconds
 package onjava;
-import java.util.concurrent.*;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 public class TimedAbort {
   private volatile boolean restart = true;
+
   public TimedAbort(double t, String msg) {
     CompletableFuture.runAsync(() -> {
       try {
-        while(restart) {
+        while (restart) {
           restart = false;
           TimeUnit.MILLISECONDS
-            .sleep((int)(1000 * t));
+                  .sleep((int) (1000 * t));
         }
       } catch(InterruptedException e) {
         throw new RuntimeException(e);

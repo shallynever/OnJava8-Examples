@@ -3,15 +3,21 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 package onjava;
-import java.io.*;
-import java.nio.file.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.PathMatcher;
 
 public class ProcessFiles {
   public interface Strategy {
     void process(File file);
   }
+
   private Strategy strategy;
   private String ext;
+
   public ProcessFiles(Strategy strategy, String ext) {
     this.strategy = strategy;
     this.ext = ext;

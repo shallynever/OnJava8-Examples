@@ -4,9 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 // Sample data for collection examples
 package onjava;
+
 import java.util.*;
-import java.util.stream.*;
-import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 public class HTMLColors {
   public static final Object[][] ARRAY = {

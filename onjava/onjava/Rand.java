@@ -4,18 +4,28 @@
 // Visit http://OnJava8.com for more book information.
 // Generate random values of different types
 package onjava;
-import java.util.*;
-import java.util.function.*;
-import static onjava.ConvertTo.*;
+
+import java.util.Arrays;
+import java.util.SplittableRandom;
+import java.util.function.DoubleSupplier;
+import java.util.function.IntSupplier;
+import java.util.function.LongSupplier;
+import java.util.function.Supplier;
+
+import static onjava.ConvertTo.primitive;
 
 public interface Rand {
   int MOD = 10_000;
+
   class Boolean
-  implements Supplier<java.lang.Boolean> {
+          implements Supplier<java.lang.Boolean> {
     SplittableRandom r = new SplittableRandom(47);
-    @Override public java.lang.Boolean get() {
+
+    @Override
+    public java.lang.Boolean get() {
       return r.nextBoolean();
     }
+
     public java.lang.Boolean get(int n) {
       return get();
     }

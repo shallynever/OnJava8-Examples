@@ -3,7 +3,9 @@
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 package onjava;
-import java.util.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Sets {
   public static <T> Set<T> union(Set<T> a, Set<T> b) {
@@ -11,6 +13,7 @@ public class Sets {
     result.addAll(b);
     return result;
   }
+
   public static <T>
   Set<T> intersection(Set<T> a, Set<T> b) {
     Set<T> result = new HashSet<>(a);

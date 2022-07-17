@@ -5,8 +5,10 @@
 // Unlimited-length Map containing sample data
 // {java onjava.CountMap}
 package onjava;
+
 import java.util.*;
-import java.util.stream.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CountMap
 extends AbstractMap<Integer,String> {

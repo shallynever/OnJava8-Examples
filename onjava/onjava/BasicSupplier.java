@@ -4,8 +4,9 @@
 // Visit http://OnJava8.com for more book information.
 // Supplier from a class with a zero-argument constructor
 package onjava;
-import java.util.function.*;
+
 import java.lang.reflect.InvocationTargetException;
+import java.util.function.Supplier;
 
 public class BasicSupplier<T> implements Supplier<T> {
   private Class<T> type;

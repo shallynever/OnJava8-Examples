@@ -5,16 +5,24 @@
 // List of any length, containing sample data
 // {java onjava.CountingIntegerList}
 package onjava;
-import java.util.*;
+
+import java.util.AbstractList;
+import java.util.List;
 
 public class CountingIntegerList
-extends AbstractList<Integer> {
+        extends AbstractList<Integer> {
   private int size;
-  public CountingIntegerList() { size = 0; }
+
+  public CountingIntegerList() {
+    size = 0;
+  }
+
   public CountingIntegerList(int size) {
     this.size = size < 0 ? 0 : size;
   }
-  @Override public Integer get(int index) {
+
+  @Override
+  public Integer get(int index) {
     return index;
   }
   @Override public int size() { return size; }

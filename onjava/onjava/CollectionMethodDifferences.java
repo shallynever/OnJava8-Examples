@@ -4,16 +4,18 @@
 // Visit http://OnJava8.com for more book information.
 // {java onjava.CollectionMethodDifferences}
 package onjava;
-import java.lang.reflect.*;
+
+import java.lang.reflect.Method;
 import java.util.*;
-import java.util.stream.*;
+import java.util.stream.Collectors;
 
 public class CollectionMethodDifferences {
   static Set<String> methodSet(Class<?> type) {
     return Arrays.stream(type.getMethods())
-      .map(Method::getName)
-      .collect(Collectors.toCollection(TreeSet::new));
+            .map(Method::getName)
+            .collect(Collectors.toCollection(TreeSet::new));
   }
+
   static void interfaces(Class<?> type) {
     System.out.print("Interfaces in " +
       type.getSimpleName() + ": ");
